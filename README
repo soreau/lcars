@@ -1,0 +1,38 @@
+# Linux Command Active Recognition System
+# Copyright (C) 2015-2016  Scott Moreau
+
+
+# TODO:
+# Update to python3
+# Make listen-rules more configurable
+# Installation - a way to install and uninstall cleanly 
+
+
+# Dependencies:
+# python2
+# PyQt4
+# pip
+# speech recognition - https://pypi.python.org/pypi/SpeechRecognition/ - pip install SpeechRecognition
+# portaudio19-dev
+# pyaudio (>= 0.2.9) - For microphone suppport - pip install pyaudio
+
+# Optional Recommended Components:
+# aplay (Audible keyword acknowledgement)
+# espeak (Spoken responses)
+# mbrola-us1 (Female voice)
+# google-chrome (Used by modules to for youtube and to google stuff)
+# xdotool (For closing focussed chrome tab)
+
+# Used internally:
+# pygoogle (Copy included) - https://code.google.com/p/pygoogle/source/checkout
+
+
+# Usage:
+# Run ./install-modules to copy the ./common and ./modules directories to ~/.lcars/
+# Start the GUI by running ./lcars-gui.py
+# Optionally start the daemon without the gui by running ./lcars
+
+# Additional Info:
+# Config file ~/.lcars/config automatically generated as needed by lcars-gui
+# To debug, run ./lcars-gui.py --debug followed by ./lcars.py restart in another terminal
+# Listens for keyword "computer" by default

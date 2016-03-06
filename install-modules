@@ -1,0 +1,7 @@
+#!/bin/bash
+
+lcars_dir="$HOME/.lcars"
+
+mkdir "$lcars_dir"
+cp -r ./common "$lcars_dir"
+cp -r ./modules "$lcars_dir"
