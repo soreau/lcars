@@ -20,7 +20,7 @@
 # aplay (Audible keyword acknowledgement)
 # espeak (Spoken responses)
 # mbrola-us1 (Female voice)
-# google-chrome (Used by modules to for youtube and to google stuff)
+# google-chrome (Used by modules for youtube and to google stuff)
 # xdotool (For closing focussed chrome tab)
 
 # Used internally:
