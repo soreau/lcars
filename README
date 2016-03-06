@@ -34,5 +34,6 @@
 
 # Additional Info:
 # Config file ~/.lcars/config automatically generated as needed by lcars-gui
+# Currently designed to run from source directory without installation
 # To debug, run ./lcars-gui.py --debug followed by ./lcars.py restart in another terminal
 # Listens for keyword "computer" by default
