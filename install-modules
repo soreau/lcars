@@ -2,6 +2,8 @@
 
 lcars_dir="$HOME/.lcars"
 
-mkdir "$lcars_dir"
+if ! [ -d "$lcars_dir" ]; then
+	mkdir "$lcars_dir"
+fi
 cp -r ./common "$lcars_dir"
 cp -r ./modules "$lcars_dir"
