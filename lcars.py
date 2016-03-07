@@ -298,8 +298,13 @@ class LCARS_Daemon(Daemon):
 					words = result_string.split()
 					print('"' + result_string + '"')
 					out_q.put("[i]: " + result_string)
-					if action and (action == "exit" or action == "quit"):
+					if action and (action == "exit" or action == "quit" or action == "stop" or action == "goodbye"):
+						reply = "Good bye"
+						out_q.put("[exit]")
+						lcars.reply_with(reply)
+						os.system("sleep 0.5")
 						self.socket_thread.stop()
+						self.stop()
 						break
 					if len(words) > 1 and words[0] == "thank" and words[1] == "you":
 						reply = "You're welcome"

@@ -202,7 +202,7 @@ class SocketThread(QThread):
 								print("[client]: Recieved message from server:", msg)
 							if "[plugins_loaded]: " in msg:
 								self.receiving_plugin_data = True
-							if not self.receiving_plugin_data:
+							if not self.receiving_plugin_data and not "[exit]" in msg:
 								msg = msg[0:4] + msg[5].upper() + msg[6:] + "\n"
 							elif " :[plugins_disabled]" in msg:
 								self.receiving_plugin_data = False
@@ -490,13 +490,15 @@ class MainWindow(QMainWindow):
 		create_window_widgets(self)
 		self.trigger_textbox.returnPressed.connect(self.update_trigger)
 		self.socket_thread.start()
-		os.system("./lcars start")
+		os.system("./lcars restart")
 
 	def check_queue(self):
 		while not self.in_q.empty():
 			msg = str(self.in_q.get())
 			if not msg:
 				continue
+			if "[exit]" in msg:
+				self.close()
 			if "[connected]" in msg:
 				self.status_label.setPalette(self.green)
 				self.status_label.setText("Running")
@@ -593,9 +595,10 @@ def main():
 	app = QApplication(sys.argv)
 	win = MainWindow()
 	win.show()
-	app.exec_()
+	ret = app.exec_()
 	if lcars.run_in_background == "false":
 		os.system("./lcars stop")
+	sys.exit(ret)
 
 if __name__ == "__main__":
     main()
