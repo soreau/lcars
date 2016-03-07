@@ -48,5 +48,7 @@ def do_action(lcars, string, case):
 	lcars.background(["google-chrome", link + target])
 	reply = "Here is the weather for " + target
 	lcars.reply_with(reply)
+	os.system("sleep 1")
+	os.system("xdotool windowactivate --sync $(xdotool search --class Chrome | tail -n 1)")
 
 	return reply
