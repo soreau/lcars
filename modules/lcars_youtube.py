@@ -61,6 +61,7 @@ def do_action(lcars, string, case):
 	reply = "Playing " + target
 	lcars.reply_with(reply)
 	os.system("sleep 1")
-	os.system("xdotool windowactivate --sync $(xdotool search --class Chrome | tail -n 1)")
+	os.system("xdotool windowactivate --sync $(xdotool search --class Chrome | head -n 1) & sleep 0.3; pkill xdotool")
+	os.system("xdotool windowactivate --sync $(xdotool search --class Chrome | tail -n 1) & sleep 0.3; pkill xdotool")
 
 	return reply

@@ -28,6 +28,6 @@ def condition(lcars, string):
 	return False, 0
 
 def do_action(lcars, string, case):
-	os.system("focus_wid=$(xdotool getwindowfocus); xdotool windowactivate --sync $(xdotool search --class Chrome | tail -n 1) key Control_L+w & sleep 0.3; xdotool windowactivate $focus_wid")
+	os.system("focus_wid=$(xdotool getwindowfocus); xdotool windowactivate --sync $(xdotool search --class Chrome | head -n 1) key Control_L+w & sleep 0.3; xdotool windowactivate --sync $(xdotool search --class Chrome | tail -n 1) key Control_L+w & sleep 0.3; xdotool windowactivate $focus_wid; sleep 0.3; pkill xdotool")
 
 	return "Closing tab"
